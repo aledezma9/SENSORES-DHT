@@ -25,9 +25,9 @@ Añadido soporte para sensores 1-n. La primera versión solo admitía 1-2 sensor
 
 Configuraciones renombradas y reorganizadas para una comprensión más sencilla, por ejemplo, la verificación de la conexión ahora es promedios semanales, ya que en realidad envía temperaturas promedio semanales (la intención es que rpi informa semanalmente que aún está vivo)
 
-Se agregó tiempo de espera configurable para el envío de correo, de modo que el usuario pueda decidir cuánto espera el registrador antes de enviar las advertencias después del correo enviado previamente. Anteriormente, se usó un valor codificado y resultó poco inconveniente
+Se agregó tiempo de espera configurable para el envío de correo, de modo que el usuario pueda decidir cuánto espera el registrador antes de enviar las advertencias después del correo enviado previamente. Anteriormente, se usó un valor codificado y resultó poco factible
 
-El volcado de copia de seguridad del SQL ya no es diario, el usuario establece el día en que se realiza el volcado. 0 es diario, 1-7 es de lunes a domingo.
+El Backup de seguridad del SQL ya no es diario, el usuario establece el día en que se realiza el . 0 es diario, 1-7 es de lunes a domingo.
 
 Las temperaturas medias semanales de envío ahora también son configurables. Funciona con el mismo patrón que el volcado de SQL anterior. 0 es diario, 1-7 es de lunes a domingo. Tenga en cuenta que siempre contará 7 días atrás y enviará el promedio de esos.
 
