@@ -1,0 +1,139 @@
+13-06-19 13:00:07 INFO Utility.MailSender MailSender instantiation finished
+13-06-19 13:00:07 INFO Sensors.SensorDataHandler SensorDataHandler instantiation started
+13-06-19 13:00:07 INFO Sensors.SensorReader SensorReader instantiation started
+13-06-19 13:00:07 INFO Sensors.SensorReader SensorReader instantiated
+13-06-19 13:00:07 INFO Utility.MeasurementCompare MeasurementCompare instantiation started
+13-06-19 13:00:07 INFO Utility.MeasurementCompare Instantiation done
+13-06-19 13:00:07 INFO Sensors.SensorDataHandler SensorDataHandler instantiated
+13-06-19 13:00:07 INFO Sensors.SensorReader Starting to collect temperature and humidity data from the the sensors
+13-06-19 13:00:07 INFO Sensors.SensorReader Collecting data for sensor: PASILLO CALIENTE
+13-06-19 13:00:07 INFO Sensors.SensorReader Get readings for the sensor PASILLO CALIENTE
+13-06-19 13:00:07 INFO Sensors.SensorReader Start reading values for sensor type 22 in gpio 22
+13-06-19 13:00:09 INFO Sensors.SensorReader Values from sensor: Temp=24.2*  Humidity=54.3%
+
+13-06-19 13:00:09 INFO Sensors.SensorReader Check is measured temperature negative or positive
+13-06-19 13:00:09 INFO Sensors.SensorReader Value is positive
+13-06-19 13:00:09 INFO Sensors.SensorReader Read humidity readings
+13-06-19 13:00:09 INFO Sensors.SensorReader Cast temperature and humidity readings to float
+13-06-19 13:00:09 INFO Sensors.SensorReader Sensor value reading finished
+13-06-19 13:00:09 INFO Sensors.SensorReader Sensor temperature values as celsius
+13-06-19 13:00:09 INFO Sensors.SensorReader Readings: Temperature: 24.2 , Humidity: 54.3. Store sensor readings for handling
+13-06-19 13:00:09 INFO Sensors.SensorReader Temperature and humidity data from sensor PASILLO CALIENTE collected
+13-06-19 13:00:09 INFO Sensors.SensorReader Checking when last mail regarding this sensor was sent out. Sensor=PASILLO CALIENTE
+13-06-19 13:00:09 INFO Database.DbActionController getLastSensorMailSentTime
+13-06-19 13:00:09 INFO Database.DbActions Executing Sql SELECT
+13-06-19 13:00:09 INFO Database.DbActions Executing Sql SELECT finished
+13-06-19 13:00:09 INFO Sensors.SensorReader Last mail regarding this sensor was sent out on: (datetime.datetime(2019, 6, 13, 12, 55, 18), 'PASILLO CALIENTE', '0.0', '2.0', 1105L)
+13-06-19 13:00:09 INFO Sensors.SensorReader Collecting previously measured values for sensor=PASILLO CALIENTE
+13-06-19 13:00:09 INFO Database.DbActionController Start reading last sensor measurements
+13-06-19 13:00:09 INFO Database.DbActions Executing Sql SELECT
+13-06-19 13:00:09 INFO Database.DbActions Executing Sql SELECT finished
+13-06-19 13:00:09 INFO Sensors.SensorReader Previously measured values collected
+13-06-19 13:00:09 INFO Sensors.SensorReader Collecting data for sensor: PASILLO FRIO
+13-06-19 13:00:09 INFO Sensors.SensorReader Get readings for the sensor PASILLO FRIO
+13-06-19 13:00:09 INFO Sensors.SensorReader Start reading values for sensor type 22 in gpio 23
+13-06-19 13:00:10 INFO Sensors.SensorReader Values from sensor: Temp=24.1*  Humidity=52.1%
+
+13-06-19 13:00:10 INFO Sensors.SensorReader Check is measured temperature negative or positive
+13-06-19 13:00:10 INFO Sensors.SensorReader Value is positive
+13-06-19 13:00:10 INFO Sensors.SensorReader Read humidity readings
+13-06-19 13:00:10 INFO Sensors.SensorReader Cast temperature and humidity readings to float
+13-06-19 13:00:10 INFO Sensors.SensorReader Sensor value reading finished
+13-06-19 13:00:10 INFO Sensors.SensorReader Sensor temperature values as celsius
+13-06-19 13:00:10 INFO Sensors.SensorReader Readings: Temperature: 24.1 , Humidity: 52.1. Store sensor readings for handling
+13-06-19 13:00:10 INFO Sensors.SensorReader Temperature and humidity data from sensor PASILLO FRIO collected
+13-06-19 13:00:10 INFO Sensors.SensorReader Checking when last mail regarding this sensor was sent out. Sensor=PASILLO FRIO
+13-06-19 13:00:10 INFO Database.DbActionController getLastSensorMailSentTime
+13-06-19 13:00:10 INFO Database.DbActions Executing Sql SELECT
+13-06-19 13:00:10 INFO Database.DbActions Executing Sql SELECT finished
+13-06-19 13:00:10 INFO Sensors.SensorReader Last mail regarding this sensor was sent out on: (datetime.datetime(2019, 6, 13, 13, 0, 10), 'PASILLO FRIO', '12.2', '3304.8', 1106L)
+13-06-19 13:00:10 INFO Sensors.SensorReader Collecting previously measured values for sensor=PASILLO FRIO
+13-06-19 13:00:10 INFO Database.DbActionController Start reading last sensor measurements
+13-06-19 13:00:10 INFO Database.DbActions Executing Sql SELECT
+13-06-19 13:00:10 INFO Database.DbActions Executing Sql SELECT finished
+13-06-19 13:00:10 INFO Sensors.SensorReader Previously measured values collected
+13-06-19 13:00:10 INFO Sensors.SensorReader Sensor readings collected
+13-06-19 13:00:10 INFO Sensors.SensorDataHandler Successfully read: 2 sensors. Failed to read: 0 sensor(s)
+13-06-19 13:00:10 INFO Sensors.SensorDataHandler Start persisting data for sensor PASILLO FRIO
+13-06-19 13:00:10 INFO Database.DbActionController Starting to persist sensor readings to database
+13-06-19 13:00:10 INFO Database.DbActions Executing Sql INSERT
+13-06-19 13:00:10 INFO Database.DbActions Executing Sql INSERT finished
+13-06-19 13:00:10 INFO Sensors.SensorDataHandler Data persisting finished for sensor PASILLO FRIO
+13-06-19 13:00:10 INFO Sensors.SensorDataHandler Start persisting data for sensor PASILLO CALIENTE
+13-06-19 13:00:10 INFO Database.DbActionController Starting to persist sensor readings to database
+13-06-19 13:00:10 INFO Database.DbActions Executing Sql INSERT
+13-06-19 13:00:10 INFO Database.DbActions Executing Sql INSERT finished
+13-06-19 13:00:10 INFO Sensors.SensorDataHandler Data persisting finished for sensor PASILLO CALIENTE
+13-06-19 13:00:10 INFO Sensors.SensorDataHandler Data persisted
+13-06-19 13:00:10 INFO Sensors.SensorDataHandler Starting measurement comparison against set threshold for sensor PASILLO FRIO
+13-06-19 13:00:10 INFO Sensors.SensorDataHandler Last measured temperature to compare to: 12.2 and Last measured humidity to compare to: 3304.8
+13-06-19 13:00:10 INFO Sensors.SensorDataHandler Execute measurement compare against set threshold
+13-06-19 13:00:10 INFO Utility.MeasurementCompare Set sensor data to begin measurements
+13-06-19 13:00:10 INFO Utility.MeasurementCompare Data set
+13-06-19 13:00:10 INFO Utility.MeasurementCompare Comparing temperature change against set threshold
+13-06-19 13:00:10 INFO Utility.MeasurementCompare Checking if previous temperature is available...
+13-06-19 13:00:10 INFO Utility.MeasurementCompare Previous temperature is available, execute comparison
+13-06-19 13:00:10 INFO Utility.MeasurementCompare Measured temperature = 24.1, previously measured temperature 12.2, temperature treshold 5.0
+13-06-19 13:00:10 WARNING Utility.MeasurementCompare Temperature has increased more than set threshold
+13-06-19 13:00:10 INFO Utility.MeasurementCompare Comparison done
+13-06-19 13:00:10 INFO Utility.MeasurementCompare Comparing humidity change against set threshold
+13-06-19 13:00:10 INFO Utility.MeasurementCompare Checking if previous humidity value is available...
+13-06-19 13:00:10 INFO Utility.MeasurementCompare Previous humidity is available, execute comparison
+13-06-19 13:00:10 INFO Utility.MeasurementCompare Measured humidity = 52.1, previously measured humidity 3304.8, humidity treshold 10.0
+13-06-19 13:00:10 WARNING Utility.MeasurementCompare Humidity has decreased more than set threshold
+13-06-19 13:00:10 INFO Utility.MeasurementCompare Comparison done
+13-06-19 13:00:10 INFO Sensors.SensorDataHandler Send Sensor warning mail
+13-06-19 13:00:10 INFO Utility.MailSender sendSensorWarningEmail called
+13-06-19 13:00:10 INFO Utility.MailSender _sendMail called. Sending mail...
+13-06-19 13:00:16 INFO Utility.MailSender Mail sent
+13-06-19 13:00:16 INFO Database.DbActionController setLastSensorMailSentTime
+13-06-19 13:00:16 INFO Database.DbActions Executing Sql INSERT
+13-06-19 13:00:16 INFO Database.DbActions Executing Sql INSERT finished
+13-06-19 13:00:16 INFO Sensors.SensorDataHandler Threshold comparison done for sensor PASILLO FRIO
+13-06-19 13:00:16 INFO Sensors.SensorDataHandler Starting measurement comparison against set threshold for sensor PASILLO CALIENTE
+13-06-19 13:00:16 INFO Sensors.SensorDataHandler Last measured temperature to compare to: 24.4 and Last measured humidity to compare to: 58.6
+13-06-19 13:00:16 INFO Sensors.SensorDataHandler Execute measurement compare against set threshold
+13-06-19 13:00:16 INFO Utility.MeasurementCompare Set sensor data to begin measurements
+13-06-19 13:00:16 INFO Utility.MeasurementCompare Data set
+13-06-19 13:00:16 INFO Utility.MeasurementCompare Comparing temperature change against set threshold
+13-06-19 13:00:16 INFO Utility.MeasurementCompare Checking if previous temperature is available...
+13-06-19 13:00:16 INFO Utility.MeasurementCompare Previous temperature is available, execute comparison
+13-06-19 13:00:16 INFO Utility.MeasurementCompare Measured temperature = 24.2, previously measured temperature 24.4, temperature treshold 5.0
+13-06-19 13:00:16 INFO Utility.MeasurementCompare Comparison done
+13-06-19 13:00:16 INFO Utility.MeasurementCompare Comparing humidity change against set threshold
+13-06-19 13:00:16 INFO Utility.MeasurementCompare Checking if previous humidity value is available...
+13-06-19 13:00:16 INFO Utility.MeasurementCompare Previous humidity is available, execute comparison
+13-06-19 13:00:16 INFO Utility.MeasurementCompare Measured humidity = 54.3, previously measured humidity 58.6, humidity treshold 10.0
+13-06-19 13:00:16 INFO Utility.MeasurementCompare Comparison done
+13-06-19 13:00:16 INFO Sensors.SensorDataHandler Threshold comparison done for sensor PASILLO CALIENTE
+13-06-19 13:00:16 INFO Sensors.SensorDataHandler Perform delta check compare against previously measured results for sensor PASILLO FRIO
+13-06-19 13:00:16 INFO Utility.MeasurementCompare Set sensor data to begin measurements
+13-06-19 13:00:16 INFO Utility.MeasurementCompare Data set
+13-06-19 13:00:16 INFO Utility.MeasurementCompare Comparing measured temperature against set limit
+13-06-19 13:00:16 INFO Utility.MeasurementCompare Comparison done
+13-06-19 13:00:16 INFO Utility.MeasurementCompare Comparing measured humidity against set limit
+13-06-19 13:00:16 INFO Utility.MeasurementCompare Comparison done
+13-06-19 13:00:16 INFO Sensors.SensorDataHandler Perform delta check compare against previously measured results for sensor PASILLO CALIENTE
+13-06-19 13:00:16 INFO Utility.MeasurementCompare Set sensor data to begin measurements
+13-06-19 13:00:16 INFO Utility.MeasurementCompare Data set
+13-06-19 13:00:16 INFO Utility.MeasurementCompare Comparing measured temperature against set limit
+13-06-19 13:00:16 INFO Utility.MeasurementCompare Comparison done
+13-06-19 13:00:16 INFO Utility.MeasurementCompare Comparing measured humidity against set limit
+13-06-19 13:00:16 INFO Utility.MeasurementCompare Comparison done
+13-06-19 13:00:16 INFO root Check if weekly averages need to be sended
+13-06-19 13:00:16 INFO Configurations.ConfigHandler Get configuration for sending weekly average temperatures
+13-06-19 13:00:16 INFO Configurations.ConfigAdapter Creating dictionary for backup dump configurations
+13-06-19 13:00:16 INFO Configurations.ConfigAdapter Configuration dictionary created
+13-06-19 13:00:16 INFO Configurations.ConfigHandler Check if weekly averages sending is enabled
+13-06-19 13:00:16 INFO Configurations.ConfigHandler Yes
+13-06-19 13:00:16 INFO Configurations.ConfigHandler Is it time to perform requested action
+13-06-19 13:00:16 INFO Configurations.ConfigHandler No
+13-06-19 13:00:16 INFO Configurations.ConfigHandler Get configuration for backup dump
+13-06-19 13:00:16 INFO Configurations.ConfigAdapter Creating dictionary for backup dump configurations
+13-06-19 13:00:16 INFO Configurations.ConfigAdapter Configuration dictionary created
+13-06-19 13:00:16 INFO Configurations.ConfigHandler Check if dump is enabled
+13-06-19 13:00:16 INFO Configurations.ConfigHandler Yes
+13-06-19 13:00:16 INFO Configurations.ConfigHandler Is it time to perform requested action
+13-06-19 13:00:16 INFO Configurations.ConfigHandler No
+13-06-19 13:00:16 INFO root DHT22logger execution finished
+

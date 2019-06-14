@@ -1,0 +1,603 @@
+13-06-19 16:10:41 INFO Sensors.SensorReader Start reading values for sensor type 22 in gpio 23
+13-06-19 16:11:19 ERROR Sensors.SensorReader Failed to get readings for sensor: PASILLO FRIO
+Traceback (most recent call last):
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 58, in getSensorReadings
+    temperature,humidity = self._getSensorReadings(sensorType,gpio)
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 133, in _getSensorReadings
+    sensorReadings = subprocess.check_output(['sudo',self.adafruitPathConfig,sensorType,gpio])
+  File "/usr/lib/python2.7/subprocess.py", line 219, in check_output
+    raise CalledProcessError(retcode, cmd, output=output)
+CalledProcessError: Command '['sudo', u'/home/pi/Adafruit_Python_DHT/examples/AdafruitDHT.py', u'22', u'23']' returned non-zero exit status 1
+13-06-19 16:11:19 INFO Sensors.SensorReader Sensor readings collected
+13-06-19 16:11:19 INFO Sensors.SensorDataHandler Successfully read: 0 sensors. Failed to read: 2 sensor(s)
+13-06-19 16:11:19 ERROR Sensors.SensorDataHandler Failed to get readings from any of the sensors. Execution terminated
+13-06-19 16:11:19 INFO Sensors.SensorDataHandler Send warning to indicate that none of the sensors provided data
+13-06-19 16:11:19 INFO Utility.MailSender sendWarningEmail called
+13-06-19 16:11:19 INFO Utility.MailSender _sendMail called. Sending mail...
+13-06-19 16:11:21 INFO Utility.MailSender Mail sent
+13-06-19 16:11:21 WARNING Sensors.SensorDataHandler Warning mail sent, no measurement values to continue with...terminate
+13-06-19 16:15:02 INFO root DHT22logger execution started
+13-06-19 16:15:02 INFO Configurations.ConfigHandler ConfigHandler instantiation started
+13-06-19 16:15:02 INFO Configurations.ConfigHandler Instantiate ConfigReader
+13-06-19 16:15:02 INFO Configurations.ConfigReader ConfigReader instantiation started
+13-06-19 16:15:02 INFO Configurations.ConfigReader Loading configurations from config.json
+13-06-19 16:15:02 INFO Configurations.ConfigReader ConfigReader instantiated
+13-06-19 16:15:02 INFO Configurations.ConfigHandler Read configurations
+13-06-19 16:15:02 INFO Configurations.ConfigHandler Configurations read succesfully
+13-06-19 16:15:02 INFO Configurations.ConfigAdapter ConfigAdapter instantiation started
+13-06-19 16:15:02 INFO Utility.TimeFormatHelper TimeFormat instantiation started
+13-06-19 16:15:02 INFO Utility.TimeFormatHelper TimeFormat instantiated
+13-06-19 16:15:02 INFO Configurations.ConfigAdapter ConfigAdapter instantiated
+13-06-19 16:15:02 INFO Configurations.ConfigHandler ConfigHandler instantiated
+13-06-19 16:15:02 INFO Configurations.ConfigHandler Get full configuration adaptation
+13-06-19 16:15:02 INFO Configurations.ConfigAdapter Creating dictionary for full configurations
+13-06-19 16:15:02 INFO Configurations.ConfigAdapter Configuration dictionary created
+13-06-19 16:15:02 INFO Database.DbActionController DbController instantiation started
+13-06-19 16:15:02 INFO Database.DbActions DBActions instantiation started
+13-06-19 16:15:02 INFO Database.DbActions DBActions instantiated
+13-06-19 16:15:02 INFO Database.DbActionController DbController instantiated
+13-06-19 16:15:02 INFO Utility.MailSender MailSender instantiation started
+13-06-19 16:15:02 INFO Utility.TimeFormatHelper TimeFormat instantiation started
+13-06-19 16:15:02 INFO Utility.TimeFormatHelper TimeFormat instantiated
+13-06-19 16:15:02 INFO Utility.MailSender MailSender instantiation finished
+13-06-19 16:15:02 INFO Sensors.SensorDataHandler SensorDataHandler instantiation started
+13-06-19 16:15:02 INFO Sensors.SensorReader SensorReader instantiation started
+13-06-19 16:15:02 INFO Sensors.SensorReader SensorReader instantiated
+13-06-19 16:15:02 INFO Utility.MeasurementCompare MeasurementCompare instantiation started
+13-06-19 16:15:02 INFO Utility.MeasurementCompare Instantiation done
+13-06-19 16:15:02 INFO Sensors.SensorDataHandler SensorDataHandler instantiated
+13-06-19 16:15:02 INFO Sensors.SensorReader Starting to collect temperature and humidity data from the the sensors
+13-06-19 16:15:02 INFO Sensors.SensorReader Collecting data for sensor: PASILLO CALIENTE
+13-06-19 16:15:02 INFO Sensors.SensorReader Get readings for the sensor PASILLO CALIENTE
+13-06-19 16:15:02 INFO Sensors.SensorReader Start reading values for sensor type 22 in gpio 22
+13-06-19 16:15:41 ERROR Sensors.SensorReader Failed to get readings for sensor: PASILLO CALIENTE
+Traceback (most recent call last):
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 58, in getSensorReadings
+    temperature,humidity = self._getSensorReadings(sensorType,gpio)
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 133, in _getSensorReadings
+    sensorReadings = subprocess.check_output(['sudo',self.adafruitPathConfig,sensorType,gpio])
+  File "/usr/lib/python2.7/subprocess.py", line 219, in check_output
+    raise CalledProcessError(retcode, cmd, output=output)
+CalledProcessError: Command '['sudo', u'/home/pi/Adafruit_Python_DHT/examples/AdafruitDHT.py', u'22', u'22']' returned non-zero exit status 1
+13-06-19 16:15:41 INFO Sensors.SensorReader Collecting data for sensor: PASILLO FRIO
+13-06-19 16:15:41 INFO Sensors.SensorReader Get readings for the sensor PASILLO FRIO
+13-06-19 16:15:41 INFO Sensors.SensorReader Start reading values for sensor type 22 in gpio 23
+13-06-19 16:16:19 ERROR Sensors.SensorReader Failed to get readings for sensor: PASILLO FRIO
+Traceback (most recent call last):
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 58, in getSensorReadings
+    temperature,humidity = self._getSensorReadings(sensorType,gpio)
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 133, in _getSensorReadings
+    sensorReadings = subprocess.check_output(['sudo',self.adafruitPathConfig,sensorType,gpio])
+  File "/usr/lib/python2.7/subprocess.py", line 219, in check_output
+    raise CalledProcessError(retcode, cmd, output=output)
+CalledProcessError: Command '['sudo', u'/home/pi/Adafruit_Python_DHT/examples/AdafruitDHT.py', u'22', u'23']' returned non-zero exit status 1
+13-06-19 16:16:19 INFO Sensors.SensorReader Sensor readings collected
+13-06-19 16:16:19 INFO Sensors.SensorDataHandler Successfully read: 0 sensors. Failed to read: 2 sensor(s)
+13-06-19 16:16:19 ERROR Sensors.SensorDataHandler Failed to get readings from any of the sensors. Execution terminated
+13-06-19 16:16:19 INFO Sensors.SensorDataHandler Send warning to indicate that none of the sensors provided data
+13-06-19 16:16:19 INFO Utility.MailSender sendWarningEmail called
+13-06-19 16:16:19 INFO Utility.MailSender _sendMail called. Sending mail...
+13-06-19 16:16:21 INFO Utility.MailSender Mail sent
+13-06-19 16:16:21 WARNING Sensors.SensorDataHandler Warning mail sent, no measurement values to continue with...terminate
+13-06-19 16:20:01 INFO root DHT22logger execution started
+13-06-19 16:20:01 INFO Configurations.ConfigHandler ConfigHandler instantiation started
+13-06-19 16:20:01 INFO Configurations.ConfigHandler Instantiate ConfigReader
+13-06-19 16:20:01 INFO Configurations.ConfigReader ConfigReader instantiation started
+13-06-19 16:20:01 INFO Configurations.ConfigReader Loading configurations from config.json
+13-06-19 16:20:01 INFO Configurations.ConfigReader ConfigReader instantiated
+13-06-19 16:20:01 INFO Configurations.ConfigHandler Read configurations
+13-06-19 16:20:01 INFO Configurations.ConfigHandler Configurations read succesfully
+13-06-19 16:20:01 INFO Configurations.ConfigAdapter ConfigAdapter instantiation started
+13-06-19 16:20:01 INFO Utility.TimeFormatHelper TimeFormat instantiation started
+13-06-19 16:20:01 INFO Utility.TimeFormatHelper TimeFormat instantiated
+13-06-19 16:20:01 INFO Configurations.ConfigAdapter ConfigAdapter instantiated
+13-06-19 16:20:01 INFO Configurations.ConfigHandler ConfigHandler instantiated
+13-06-19 16:20:01 INFO Configurations.ConfigHandler Get full configuration adaptation
+13-06-19 16:20:01 INFO Configurations.ConfigAdapter Creating dictionary for full configurations
+13-06-19 16:20:01 INFO Configurations.ConfigAdapter Configuration dictionary created
+13-06-19 16:20:01 INFO Database.DbActionController DbController instantiation started
+13-06-19 16:20:01 INFO Database.DbActions DBActions instantiation started
+13-06-19 16:20:01 INFO Database.DbActions DBActions instantiated
+13-06-19 16:20:01 INFO Database.DbActionController DbController instantiated
+13-06-19 16:20:01 INFO Utility.MailSender MailSender instantiation started
+13-06-19 16:20:01 INFO Utility.TimeFormatHelper TimeFormat instantiation started
+13-06-19 16:20:01 INFO Utility.TimeFormatHelper TimeFormat instantiated
+13-06-19 16:20:01 INFO Utility.MailSender MailSender instantiation finished
+13-06-19 16:20:01 INFO Sensors.SensorDataHandler SensorDataHandler instantiation started
+13-06-19 16:20:01 INFO Sensors.SensorReader SensorReader instantiation started
+13-06-19 16:20:01 INFO Sensors.SensorReader SensorReader instantiated
+13-06-19 16:20:01 INFO Utility.MeasurementCompare MeasurementCompare instantiation started
+13-06-19 16:20:01 INFO Utility.MeasurementCompare Instantiation done
+13-06-19 16:20:01 INFO Sensors.SensorDataHandler SensorDataHandler instantiated
+13-06-19 16:20:01 INFO Sensors.SensorReader Starting to collect temperature and humidity data from the the sensors
+13-06-19 16:20:01 INFO Sensors.SensorReader Collecting data for sensor: None
+13-06-19 16:20:01 INFO Sensors.SensorReader Get readings for the sensor None
+13-06-19 16:20:01 INFO Sensors.SensorReader Start reading values for sensor type 22 in gpio 22
+13-06-19 16:20:40 ERROR Sensors.SensorDataHandler Sensor reading raised exception
+Traceback (most recent call last):
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorDataHandler.py", line 31, in readAndStoreSensorReadings
+    self.readingsFromSensors, self.failedSensors = self.sensorReader.getSensorReadings()
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 85, in getSensorReadings
+    self.logger.error('Failed to get readings for sensor: ' + sensorName + '\n',exc_info=True)
+TypeError: cannot concatenate 'str' and 'NoneType' objects
+13-06-19 16:20:40 ERROR root Sensor data handling failed:
+Traceback (most recent call last):
+  File "/home/pi/DHT22-TemperatureLogger/DHT22logger.py", line 82, in main
+    SensorDataHandler(configurations,dbControl,mailSender).readAndStoreSensorReadings()
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorDataHandler.py", line 31, in readAndStoreSensorReadings
+    self.readingsFromSensors, self.failedSensors = self.sensorReader.getSensorReadings()
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 85, in getSensorReadings
+    self.logger.error('Failed to get readings for sensor: ' + sensorName + '\n',exc_info=True)
+TypeError: cannot concatenate 'str' and 'NoneType' objects
+13-06-19 16:20:40 INFO Utility.MailSender sendWarningEmail called
+13-06-19 16:20:40 INFO Utility.MailSender _sendMail called. Sending mail...
+13-06-19 16:20:41 ERROR Utility.MailSender Failed to send mail
+Traceback (most recent call last):
+  File "/home/pi/DHT22-TemperatureLogger/Utility/MailSender.py", line 69, in sendWarningEmail
+    self._sendMail(messageOut)
+  File "/home/pi/DHT22-TemperatureLogger/Utility/MailSender.py", line 106, in _sendMail
+    server.login(self.username,self.password)
+  File "/usr/lib/python2.7/smtplib.py", line 622, in login
+    raise SMTPAuthenticationError(code, resp)
+SMTPAuthenticationError: (535, '5.7.8 Username and Password not accepted. Learn more at\n5.7.8  https://support.google.com/mail/?p=BadCredentials 103sm338290otu.33 - gsmtp')
+13-06-19 16:20:41 ERROR root Sending warning mail failed
+Traceback (most recent call last):
+  File "/home/pi/DHT22-TemperatureLogger/DHT22logger.py", line 87, in main
+    mailSender.sendWarningEmail("Error with sensor data handling.\nError message: {0}".format(e.message))
+  File "/home/pi/DHT22-TemperatureLogger/Utility/MailSender.py", line 69, in sendWarningEmail
+    self._sendMail(messageOut)
+  File "/home/pi/DHT22-TemperatureLogger/Utility/MailSender.py", line 106, in _sendMail
+    server.login(self.username,self.password)
+  File "/usr/lib/python2.7/smtplib.py", line 622, in login
+    raise SMTPAuthenticationError(code, resp)
+SMTPAuthenticationError: (535, '5.7.8 Username and Password not accepted. Learn more at\n5.7.8  https://support.google.com/mail/?p=BadCredentials 103sm338290otu.33 - gsmtp')
+13-06-19 16:20:41 INFO root Check if weekly averages need to be sended
+13-06-19 16:20:41 INFO Configurations.ConfigHandler Get configuration for sending weekly average temperatures
+13-06-19 16:20:41 INFO Configurations.ConfigAdapter Creating dictionary for backup dump configurations
+13-06-19 16:20:41 INFO Configurations.ConfigAdapter Configuration dictionary created
+13-06-19 16:20:41 INFO Configurations.ConfigHandler Check if weekly averages sending is enabled
+13-06-19 16:20:41 INFO Configurations.ConfigHandler Yes
+13-06-19 16:20:41 INFO Configurations.ConfigHandler Is it time to perform requested action
+13-06-19 16:20:41 INFO Configurations.ConfigHandler No
+13-06-19 16:20:41 INFO Configurations.ConfigHandler Get configuration for backup dump
+13-06-19 16:20:41 INFO Configurations.ConfigAdapter Creating dictionary for backup dump configurations
+13-06-19 16:20:41 INFO Configurations.ConfigAdapter Configuration dictionary created
+13-06-19 16:20:41 INFO Configurations.ConfigHandler Check if dump is enabled
+13-06-19 16:20:41 INFO Configurations.ConfigHandler Yes
+13-06-19 16:20:41 INFO Configurations.ConfigHandler Is it time to perform requested action
+13-06-19 16:20:41 INFO Configurations.ConfigHandler No
+13-06-19 16:20:41 INFO root DHT22logger execution finished
+
+13-06-19 16:25:01 INFO root DHT22logger execution started
+13-06-19 16:25:01 INFO Configurations.ConfigHandler ConfigHandler instantiation started
+13-06-19 16:25:01 INFO Configurations.ConfigHandler Instantiate ConfigReader
+13-06-19 16:25:01 INFO Configurations.ConfigReader ConfigReader instantiation started
+13-06-19 16:25:01 INFO Configurations.ConfigReader Loading configurations from config.json
+13-06-19 16:25:01 INFO Configurations.ConfigReader ConfigReader instantiated
+13-06-19 16:25:01 INFO Configurations.ConfigHandler Read configurations
+13-06-19 16:25:01 INFO Configurations.ConfigHandler Configurations read succesfully
+13-06-19 16:25:01 INFO Configurations.ConfigAdapter ConfigAdapter instantiation started
+13-06-19 16:25:01 INFO Utility.TimeFormatHelper TimeFormat instantiation started
+13-06-19 16:25:01 INFO Utility.TimeFormatHelper TimeFormat instantiated
+13-06-19 16:25:01 INFO Configurations.ConfigAdapter ConfigAdapter instantiated
+13-06-19 16:25:01 INFO Configurations.ConfigHandler ConfigHandler instantiated
+13-06-19 16:25:01 INFO Configurations.ConfigHandler Get full configuration adaptation
+13-06-19 16:25:01 INFO Configurations.ConfigAdapter Creating dictionary for full configurations
+13-06-19 16:25:01 INFO Configurations.ConfigAdapter Configuration dictionary created
+13-06-19 16:25:01 INFO Database.DbActionController DbController instantiation started
+13-06-19 16:25:01 INFO Database.DbActions DBActions instantiation started
+13-06-19 16:25:01 INFO Database.DbActions DBActions instantiated
+13-06-19 16:25:01 INFO Database.DbActionController DbController instantiated
+13-06-19 16:25:01 INFO Utility.MailSender MailSender instantiation started
+13-06-19 16:25:01 INFO Utility.TimeFormatHelper TimeFormat instantiation started
+13-06-19 16:25:01 INFO Utility.TimeFormatHelper TimeFormat instantiated
+13-06-19 16:25:01 INFO Utility.MailSender MailSender instantiation finished
+13-06-19 16:25:01 INFO Sensors.SensorDataHandler SensorDataHandler instantiation started
+13-06-19 16:25:01 INFO Sensors.SensorReader SensorReader instantiation started
+13-06-19 16:25:01 INFO Sensors.SensorReader SensorReader instantiated
+13-06-19 16:25:01 INFO Utility.MeasurementCompare MeasurementCompare instantiation started
+13-06-19 16:25:01 INFO Utility.MeasurementCompare Instantiation done
+13-06-19 16:25:01 INFO Sensors.SensorDataHandler SensorDataHandler instantiated
+13-06-19 16:25:01 INFO Sensors.SensorReader Starting to collect temperature and humidity data from the the sensors
+13-06-19 16:25:01 INFO Sensors.SensorReader Collecting data for sensor: Pasillo frio
+13-06-19 16:25:01 INFO Sensors.SensorReader Get readings for the sensor Pasillo frio
+13-06-19 16:25:01 INFO Sensors.SensorReader Start reading values for sensor type 22 in gpio 22
+13-06-19 16:25:40 ERROR Sensors.SensorReader Failed to get readings for sensor: Pasillo frio
+Traceback (most recent call last):
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 58, in getSensorReadings
+    temperature,humidity = self._getSensorReadings(sensorType,gpio)
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 133, in _getSensorReadings
+    sensorReadings = subprocess.check_output(['sudo',self.adafruitPathConfig,sensorType,gpio])
+  File "/usr/lib/python2.7/subprocess.py", line 219, in check_output
+    raise CalledProcessError(retcode, cmd, output=output)
+CalledProcessError: Command '['sudo', u'/home/pi/Adafruit_Python_DHT/examples/AdafruitDHT.py', u'22', u'22']' returned non-zero exit status 1
+13-06-19 16:25:40 INFO Sensors.SensorReader Collecting data for sensor: Pasillo caliente
+13-06-19 16:25:40 INFO Sensors.SensorReader Get readings for the sensor Pasillo caliente
+13-06-19 16:25:40 INFO Sensors.SensorReader Start reading values for sensor type 22 in gpio 23
+13-06-19 16:26:19 ERROR Sensors.SensorReader Failed to get readings for sensor: Pasillo caliente
+Traceback (most recent call last):
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 58, in getSensorReadings
+    temperature,humidity = self._getSensorReadings(sensorType,gpio)
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 133, in _getSensorReadings
+    sensorReadings = subprocess.check_output(['sudo',self.adafruitPathConfig,sensorType,gpio])
+  File "/usr/lib/python2.7/subprocess.py", line 219, in check_output
+    raise CalledProcessError(retcode, cmd, output=output)
+CalledProcessError: Command '['sudo', u'/home/pi/Adafruit_Python_DHT/examples/AdafruitDHT.py', u'22', u'23']' returned non-zero exit status 1
+13-06-19 16:26:19 INFO Sensors.SensorReader Sensor readings collected
+13-06-19 16:26:19 INFO Sensors.SensorDataHandler Successfully read: 0 sensors. Failed to read: 2 sensor(s)
+13-06-19 16:26:19 ERROR Sensors.SensorDataHandler Failed to get readings from any of the sensors. Execution terminated
+13-06-19 16:26:19 INFO Sensors.SensorDataHandler Send warning to indicate that none of the sensors provided data
+13-06-19 16:26:19 INFO Utility.MailSender sendWarningEmail called
+13-06-19 16:26:19 INFO Utility.MailSender _sendMail called. Sending mail...
+13-06-19 16:26:21 INFO Utility.MailSender Mail sent
+13-06-19 16:26:21 WARNING Sensors.SensorDataHandler Warning mail sent, no measurement values to continue with...terminate
+13-06-19 16:30:01 INFO root DHT22logger execution started
+13-06-19 16:30:01 INFO Configurations.ConfigHandler ConfigHandler instantiation started
+13-06-19 16:30:01 INFO Configurations.ConfigHandler Instantiate ConfigReader
+13-06-19 16:30:01 INFO Configurations.ConfigReader ConfigReader instantiation started
+13-06-19 16:30:01 INFO Configurations.ConfigReader Loading configurations from config.json
+13-06-19 16:30:01 INFO Configurations.ConfigReader ConfigReader instantiated
+13-06-19 16:30:01 INFO Configurations.ConfigHandler Read configurations
+13-06-19 16:30:01 INFO Configurations.ConfigHandler Configurations read succesfully
+13-06-19 16:30:01 INFO Configurations.ConfigAdapter ConfigAdapter instantiation started
+13-06-19 16:30:01 INFO Utility.TimeFormatHelper TimeFormat instantiation started
+13-06-19 16:30:01 INFO Utility.TimeFormatHelper TimeFormat instantiated
+13-06-19 16:30:01 INFO Configurations.ConfigAdapter ConfigAdapter instantiated
+13-06-19 16:30:01 INFO Configurations.ConfigHandler ConfigHandler instantiated
+13-06-19 16:30:01 INFO Configurations.ConfigHandler Get full configuration adaptation
+13-06-19 16:30:01 INFO Configurations.ConfigAdapter Creating dictionary for full configurations
+13-06-19 16:30:01 INFO Configurations.ConfigAdapter Configuration dictionary created
+13-06-19 16:30:01 INFO Database.DbActionController DbController instantiation started
+13-06-19 16:30:01 INFO Database.DbActions DBActions instantiation started
+13-06-19 16:30:01 INFO Database.DbActions DBActions instantiated
+13-06-19 16:30:01 INFO Database.DbActionController DbController instantiated
+13-06-19 16:30:01 INFO Utility.MailSender MailSender instantiation started
+13-06-19 16:30:01 INFO Utility.TimeFormatHelper TimeFormat instantiation started
+13-06-19 16:30:01 INFO Utility.TimeFormatHelper TimeFormat instantiated
+13-06-19 16:30:01 INFO Utility.MailSender MailSender instantiation finished
+13-06-19 16:30:01 INFO Sensors.SensorDataHandler SensorDataHandler instantiation started
+13-06-19 16:30:01 INFO Sensors.SensorReader SensorReader instantiation started
+13-06-19 16:30:01 INFO Sensors.SensorReader SensorReader instantiated
+13-06-19 16:30:01 INFO Utility.MeasurementCompare MeasurementCompare instantiation started
+13-06-19 16:30:01 INFO Utility.MeasurementCompare Instantiation done
+13-06-19 16:30:01 INFO Sensors.SensorDataHandler SensorDataHandler instantiated
+13-06-19 16:30:01 INFO Sensors.SensorReader Starting to collect temperature and humidity data from the the sensors
+13-06-19 16:30:01 INFO Sensors.SensorReader Collecting data for sensor: Pasillo frio
+13-06-19 16:30:01 INFO Sensors.SensorReader Get readings for the sensor Pasillo frio
+13-06-19 16:30:01 INFO Sensors.SensorReader Start reading values for sensor type 22 in gpio 22
+13-06-19 16:30:40 ERROR Sensors.SensorReader Failed to get readings for sensor: Pasillo frio
+Traceback (most recent call last):
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 58, in getSensorReadings
+    temperature,humidity = self._getSensorReadings(sensorType,gpio)
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 133, in _getSensorReadings
+    sensorReadings = subprocess.check_output(['sudo',self.adafruitPathConfig,sensorType,gpio])
+  File "/usr/lib/python2.7/subprocess.py", line 219, in check_output
+    raise CalledProcessError(retcode, cmd, output=output)
+CalledProcessError: Command '['sudo', u'/home/pi/Adafruit_Python_DHT/examples/AdafruitDHT.py', u'22', u'22']' returned non-zero exit status 1
+13-06-19 16:30:40 INFO Sensors.SensorReader Collecting data for sensor: Pasillo caliente
+13-06-19 16:30:40 INFO Sensors.SensorReader Get readings for the sensor Pasillo caliente
+13-06-19 16:30:40 INFO Sensors.SensorReader Start reading values for sensor type 22 in gpio 23
+13-06-19 16:31:19 ERROR Sensors.SensorReader Failed to get readings for sensor: Pasillo caliente
+Traceback (most recent call last):
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 58, in getSensorReadings
+    temperature,humidity = self._getSensorReadings(sensorType,gpio)
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 133, in _getSensorReadings
+    sensorReadings = subprocess.check_output(['sudo',self.adafruitPathConfig,sensorType,gpio])
+  File "/usr/lib/python2.7/subprocess.py", line 219, in check_output
+    raise CalledProcessError(retcode, cmd, output=output)
+CalledProcessError: Command '['sudo', u'/home/pi/Adafruit_Python_DHT/examples/AdafruitDHT.py', u'22', u'23']' returned non-zero exit status 1
+13-06-19 16:31:19 INFO Sensors.SensorReader Sensor readings collected
+13-06-19 16:31:19 INFO Sensors.SensorDataHandler Successfully read: 0 sensors. Failed to read: 2 sensor(s)
+13-06-19 16:31:19 ERROR Sensors.SensorDataHandler Failed to get readings from any of the sensors. Execution terminated
+13-06-19 16:31:19 INFO Sensors.SensorDataHandler Send warning to indicate that none of the sensors provided data
+13-06-19 16:31:19 INFO Utility.MailSender sendWarningEmail called
+13-06-19 16:31:19 INFO Utility.MailSender _sendMail called. Sending mail...
+13-06-19 16:31:21 INFO Utility.MailSender Mail sent
+13-06-19 16:31:21 WARNING Sensors.SensorDataHandler Warning mail sent, no measurement values to continue with...terminate
+13-06-19 16:35:01 INFO root DHT22logger execution started
+13-06-19 16:35:01 INFO Configurations.ConfigHandler ConfigHandler instantiation started
+13-06-19 16:35:01 INFO Configurations.ConfigHandler Instantiate ConfigReader
+13-06-19 16:35:01 INFO Configurations.ConfigReader ConfigReader instantiation started
+13-06-19 16:35:01 INFO Configurations.ConfigReader Loading configurations from config.json
+13-06-19 16:35:01 INFO Configurations.ConfigReader ConfigReader instantiated
+13-06-19 16:35:01 INFO Configurations.ConfigHandler Read configurations
+13-06-19 16:35:01 INFO Configurations.ConfigHandler Configurations read succesfully
+13-06-19 16:35:01 INFO Configurations.ConfigAdapter ConfigAdapter instantiation started
+13-06-19 16:35:01 INFO Utility.TimeFormatHelper TimeFormat instantiation started
+13-06-19 16:35:01 INFO Utility.TimeFormatHelper TimeFormat instantiated
+13-06-19 16:35:01 INFO Configurations.ConfigAdapter ConfigAdapter instantiated
+13-06-19 16:35:01 INFO Configurations.ConfigHandler ConfigHandler instantiated
+13-06-19 16:35:01 INFO Configurations.ConfigHandler Get full configuration adaptation
+13-06-19 16:35:01 INFO Configurations.ConfigAdapter Creating dictionary for full configurations
+13-06-19 16:35:01 INFO Configurations.ConfigAdapter Configuration dictionary created
+13-06-19 16:35:01 INFO Database.DbActionController DbController instantiation started
+13-06-19 16:35:01 INFO Database.DbActions DBActions instantiation started
+13-06-19 16:35:01 INFO Database.DbActions DBActions instantiated
+13-06-19 16:35:01 INFO Database.DbActionController DbController instantiated
+13-06-19 16:35:01 INFO Utility.MailSender MailSender instantiation started
+13-06-19 16:35:01 INFO Utility.TimeFormatHelper TimeFormat instantiation started
+13-06-19 16:35:01 INFO Utility.TimeFormatHelper TimeFormat instantiated
+13-06-19 16:35:01 INFO Utility.MailSender MailSender instantiation finished
+13-06-19 16:35:01 INFO Sensors.SensorDataHandler SensorDataHandler instantiation started
+13-06-19 16:35:01 INFO Sensors.SensorReader SensorReader instantiation started
+13-06-19 16:35:01 INFO Sensors.SensorReader SensorReader instantiated
+13-06-19 16:35:01 INFO Utility.MeasurementCompare MeasurementCompare instantiation started
+13-06-19 16:35:01 INFO Utility.MeasurementCompare Instantiation done
+13-06-19 16:35:01 INFO Sensors.SensorDataHandler SensorDataHandler instantiated
+13-06-19 16:35:01 INFO Sensors.SensorReader Starting to collect temperature and humidity data from the the sensors
+13-06-19 16:35:01 INFO Sensors.SensorReader Collecting data for sensor: Pasillo frio
+13-06-19 16:35:01 INFO Sensors.SensorReader Get readings for the sensor Pasillo frio
+13-06-19 16:35:01 INFO Sensors.SensorReader Start reading values for sensor type 22 in gpio 22
+13-06-19 16:35:40 ERROR Sensors.SensorReader Failed to get readings for sensor: Pasillo frio
+Traceback (most recent call last):
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 58, in getSensorReadings
+    temperature,humidity = self._getSensorReadings(sensorType,gpio)
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 133, in _getSensorReadings
+    sensorReadings = subprocess.check_output(['sudo',self.adafruitPathConfig,sensorType,gpio])
+  File "/usr/lib/python2.7/subprocess.py", line 219, in check_output
+    raise CalledProcessError(retcode, cmd, output=output)
+CalledProcessError: Command '['sudo', u'/home/pi/Adafruit_Python_DHT/examples/AdafruitDHT.py', u'22', u'22']' returned non-zero exit status 1
+13-06-19 16:35:40 INFO Sensors.SensorReader Collecting data for sensor: Pasillo caliente
+13-06-19 16:35:40 INFO Sensors.SensorReader Get readings for the sensor Pasillo caliente
+13-06-19 16:35:40 INFO Sensors.SensorReader Start reading values for sensor type 22 in gpio 23
+13-06-19 16:36:19 ERROR Sensors.SensorReader Failed to get readings for sensor: Pasillo caliente
+Traceback (most recent call last):
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 58, in getSensorReadings
+    temperature,humidity = self._getSensorReadings(sensorType,gpio)
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 133, in _getSensorReadings
+    sensorReadings = subprocess.check_output(['sudo',self.adafruitPathConfig,sensorType,gpio])
+  File "/usr/lib/python2.7/subprocess.py", line 219, in check_output
+    raise CalledProcessError(retcode, cmd, output=output)
+CalledProcessError: Command '['sudo', u'/home/pi/Adafruit_Python_DHT/examples/AdafruitDHT.py', u'22', u'23']' returned non-zero exit status 1
+13-06-19 16:36:19 INFO Sensors.SensorReader Sensor readings collected
+13-06-19 16:36:19 INFO Sensors.SensorDataHandler Successfully read: 0 sensors. Failed to read: 2 sensor(s)
+13-06-19 16:36:19 ERROR Sensors.SensorDataHandler Failed to get readings from any of the sensors. Execution terminated
+13-06-19 16:36:19 INFO Sensors.SensorDataHandler Send warning to indicate that none of the sensors provided data
+13-06-19 16:36:19 INFO Utility.MailSender sendWarningEmail called
+13-06-19 16:36:19 INFO Utility.MailSender _sendMail called. Sending mail...
+13-06-19 16:36:20 INFO Utility.MailSender Mail sent
+13-06-19 16:36:20 WARNING Sensors.SensorDataHandler Warning mail sent, no measurement values to continue with...terminate
+13-06-19 16:40:01 INFO root DHT22logger execution started
+13-06-19 16:40:01 INFO Configurations.ConfigHandler ConfigHandler instantiation started
+13-06-19 16:40:01 INFO Configurations.ConfigHandler Instantiate ConfigReader
+13-06-19 16:40:01 INFO Configurations.ConfigReader ConfigReader instantiation started
+13-06-19 16:40:01 INFO Configurations.ConfigReader Loading configurations from config.json
+13-06-19 16:40:01 INFO Configurations.ConfigReader ConfigReader instantiated
+13-06-19 16:40:01 INFO Configurations.ConfigHandler Read configurations
+13-06-19 16:40:01 INFO Configurations.ConfigHandler Configurations read succesfully
+13-06-19 16:40:01 INFO Configurations.ConfigAdapter ConfigAdapter instantiation started
+13-06-19 16:40:01 INFO Utility.TimeFormatHelper TimeFormat instantiation started
+13-06-19 16:40:01 INFO Utility.TimeFormatHelper TimeFormat instantiated
+13-06-19 16:40:01 INFO Configurations.ConfigAdapter ConfigAdapter instantiated
+13-06-19 16:40:01 INFO Configurations.ConfigHandler ConfigHandler instantiated
+13-06-19 16:40:01 INFO Configurations.ConfigHandler Get full configuration adaptation
+13-06-19 16:40:01 INFO Configurations.ConfigAdapter Creating dictionary for full configurations
+13-06-19 16:40:01 INFO Configurations.ConfigAdapter Configuration dictionary created
+13-06-19 16:40:01 INFO Database.DbActionController DbController instantiation started
+13-06-19 16:40:01 INFO Database.DbActions DBActions instantiation started
+13-06-19 16:40:01 INFO Database.DbActions DBActions instantiated
+13-06-19 16:40:01 INFO Database.DbActionController DbController instantiated
+13-06-19 16:40:01 INFO Utility.MailSender MailSender instantiation started
+13-06-19 16:40:01 INFO Utility.TimeFormatHelper TimeFormat instantiation started
+13-06-19 16:40:01 INFO Utility.TimeFormatHelper TimeFormat instantiated
+13-06-19 16:40:01 INFO Utility.MailSender MailSender instantiation finished
+13-06-19 16:40:01 INFO Sensors.SensorDataHandler SensorDataHandler instantiation started
+13-06-19 16:40:01 INFO Sensors.SensorReader SensorReader instantiation started
+13-06-19 16:40:01 INFO Sensors.SensorReader SensorReader instantiated
+13-06-19 16:40:01 INFO Utility.MeasurementCompare MeasurementCompare instantiation started
+13-06-19 16:40:01 INFO Utility.MeasurementCompare Instantiation done
+13-06-19 16:40:01 INFO Sensors.SensorDataHandler SensorDataHandler instantiated
+13-06-19 16:40:01 INFO Sensors.SensorReader Starting to collect temperature and humidity data from the the sensors
+13-06-19 16:40:01 INFO Sensors.SensorReader Collecting data for sensor: Pasillo frio
+13-06-19 16:40:01 INFO Sensors.SensorReader Get readings for the sensor Pasillo frio
+13-06-19 16:40:01 INFO Sensors.SensorReader Start reading values for sensor type 22 in gpio 22
+13-06-19 16:40:40 ERROR Sensors.SensorReader Failed to get readings for sensor: Pasillo frio
+Traceback (most recent call last):
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 58, in getSensorReadings
+    temperature,humidity = self._getSensorReadings(sensorType,gpio)
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 133, in _getSensorReadings
+    sensorReadings = subprocess.check_output(['sudo',self.adafruitPathConfig,sensorType,gpio])
+  File "/usr/lib/python2.7/subprocess.py", line 219, in check_output
+    raise CalledProcessError(retcode, cmd, output=output)
+CalledProcessError: Command '['sudo', u'/home/pi/Adafruit_Python_DHT/examples/AdafruitDHT.py', u'22', u'22']' returned non-zero exit status 1
+13-06-19 16:40:40 INFO Sensors.SensorReader Collecting data for sensor: Pasillo caliente
+13-06-19 16:40:40 INFO Sensors.SensorReader Get readings for the sensor Pasillo caliente
+13-06-19 16:40:40 INFO Sensors.SensorReader Start reading values for sensor type 22 in gpio 23
+13-06-19 16:41:19 ERROR Sensors.SensorReader Failed to get readings for sensor: Pasillo caliente
+Traceback (most recent call last):
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 58, in getSensorReadings
+    temperature,humidity = self._getSensorReadings(sensorType,gpio)
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 133, in _getSensorReadings
+    sensorReadings = subprocess.check_output(['sudo',self.adafruitPathConfig,sensorType,gpio])
+  File "/usr/lib/python2.7/subprocess.py", line 219, in check_output
+    raise CalledProcessError(retcode, cmd, output=output)
+CalledProcessError: Command '['sudo', u'/home/pi/Adafruit_Python_DHT/examples/AdafruitDHT.py', u'22', u'23']' returned non-zero exit status 1
+13-06-19 16:41:19 INFO Sensors.SensorReader Sensor readings collected
+13-06-19 16:41:19 INFO Sensors.SensorDataHandler Successfully read: 0 sensors. Failed to read: 2 sensor(s)
+13-06-19 16:41:19 ERROR Sensors.SensorDataHandler Failed to get readings from any of the sensors. Execution terminated
+13-06-19 16:41:19 INFO Sensors.SensorDataHandler Send warning to indicate that none of the sensors provided data
+13-06-19 16:41:19 INFO Utility.MailSender sendWarningEmail called
+13-06-19 16:41:19 INFO Utility.MailSender _sendMail called. Sending mail...
+13-06-19 16:41:20 INFO Utility.MailSender Mail sent
+13-06-19 16:41:20 WARNING Sensors.SensorDataHandler Warning mail sent, no measurement values to continue with...terminate
+13-06-19 16:45:01 INFO root DHT22logger execution started
+13-06-19 16:45:01 INFO Configurations.ConfigHandler ConfigHandler instantiation started
+13-06-19 16:45:01 INFO Configurations.ConfigHandler Instantiate ConfigReader
+13-06-19 16:45:01 INFO Configurations.ConfigReader ConfigReader instantiation started
+13-06-19 16:45:01 INFO Configurations.ConfigReader Loading configurations from config.json
+13-06-19 16:45:01 INFO Configurations.ConfigReader ConfigReader instantiated
+13-06-19 16:45:01 INFO Configurations.ConfigHandler Read configurations
+13-06-19 16:45:01 INFO Configurations.ConfigHandler Configurations read succesfully
+13-06-19 16:45:01 INFO Configurations.ConfigAdapter ConfigAdapter instantiation started
+13-06-19 16:45:01 INFO Utility.TimeFormatHelper TimeFormat instantiation started
+13-06-19 16:45:01 INFO Utility.TimeFormatHelper TimeFormat instantiated
+13-06-19 16:45:01 INFO Configurations.ConfigAdapter ConfigAdapter instantiated
+13-06-19 16:45:01 INFO Configurations.ConfigHandler ConfigHandler instantiated
+13-06-19 16:45:01 INFO Configurations.ConfigHandler Get full configuration adaptation
+13-06-19 16:45:01 INFO Configurations.ConfigAdapter Creating dictionary for full configurations
+13-06-19 16:45:01 INFO Configurations.ConfigAdapter Configuration dictionary created
+13-06-19 16:45:01 INFO Database.DbActionController DbController instantiation started
+13-06-19 16:45:01 INFO Database.DbActions DBActions instantiation started
+13-06-19 16:45:01 INFO Database.DbActions DBActions instantiated
+13-06-19 16:45:01 INFO Database.DbActionController DbController instantiated
+13-06-19 16:45:01 INFO Utility.MailSender MailSender instantiation started
+13-06-19 16:45:01 INFO Utility.TimeFormatHelper TimeFormat instantiation started
+13-06-19 16:45:01 INFO Utility.TimeFormatHelper TimeFormat instantiated
+13-06-19 16:45:01 INFO Utility.MailSender MailSender instantiation finished
+13-06-19 16:45:01 INFO Sensors.SensorDataHandler SensorDataHandler instantiation started
+13-06-19 16:45:01 INFO Sensors.SensorReader SensorReader instantiation started
+13-06-19 16:45:01 INFO Sensors.SensorReader SensorReader instantiated
+13-06-19 16:45:01 INFO Utility.MeasurementCompare MeasurementCompare instantiation started
+13-06-19 16:45:01 INFO Utility.MeasurementCompare Instantiation done
+13-06-19 16:45:01 INFO Sensors.SensorDataHandler SensorDataHandler instantiated
+13-06-19 16:45:01 INFO Sensors.SensorReader Starting to collect temperature and humidity data from the the sensors
+13-06-19 16:45:01 INFO Sensors.SensorReader Collecting data for sensor: Pasillo frio
+13-06-19 16:45:01 INFO Sensors.SensorReader Get readings for the sensor Pasillo frio
+13-06-19 16:45:01 INFO Sensors.SensorReader Start reading values for sensor type 22 in gpio 22
+13-06-19 16:45:40 ERROR Sensors.SensorReader Failed to get readings for sensor: Pasillo frio
+Traceback (most recent call last):
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 58, in getSensorReadings
+    temperature,humidity = self._getSensorReadings(sensorType,gpio)
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 133, in _getSensorReadings
+    sensorReadings = subprocess.check_output(['sudo',self.adafruitPathConfig,sensorType,gpio])
+  File "/usr/lib/python2.7/subprocess.py", line 219, in check_output
+    raise CalledProcessError(retcode, cmd, output=output)
+CalledProcessError: Command '['sudo', u'/home/pi/Adafruit_Python_DHT/examples/AdafruitDHT.py', u'22', u'22']' returned non-zero exit status 1
+13-06-19 16:45:40 INFO Sensors.SensorReader Collecting data for sensor: Pasillo caliente
+13-06-19 16:45:40 INFO Sensors.SensorReader Get readings for the sensor Pasillo caliente
+13-06-19 16:45:40 INFO Sensors.SensorReader Start reading values for sensor type 22 in gpio 23
+13-06-19 16:46:18 ERROR Sensors.SensorReader Failed to get readings for sensor: Pasillo caliente
+Traceback (most recent call last):
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 58, in getSensorReadings
+    temperature,humidity = self._getSensorReadings(sensorType,gpio)
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 133, in _getSensorReadings
+    sensorReadings = subprocess.check_output(['sudo',self.adafruitPathConfig,sensorType,gpio])
+  File "/usr/lib/python2.7/subprocess.py", line 219, in check_output
+    raise CalledProcessError(retcode, cmd, output=output)
+CalledProcessError: Command '['sudo', u'/home/pi/Adafruit_Python_DHT/examples/AdafruitDHT.py', u'22', u'23']' returned non-zero exit status 1
+13-06-19 16:46:18 INFO Sensors.SensorReader Sensor readings collected
+13-06-19 16:46:18 INFO Sensors.SensorDataHandler Successfully read: 0 sensors. Failed to read: 2 sensor(s)
+13-06-19 16:46:18 ERROR Sensors.SensorDataHandler Failed to get readings from any of the sensors. Execution terminated
+13-06-19 16:46:18 INFO Sensors.SensorDataHandler Send warning to indicate that none of the sensors provided data
+13-06-19 16:46:18 INFO Utility.MailSender sendWarningEmail called
+13-06-19 16:46:18 INFO Utility.MailSender _sendMail called. Sending mail...
+13-06-19 16:46:20 INFO Utility.MailSender Mail sent
+13-06-19 16:46:20 WARNING Sensors.SensorDataHandler Warning mail sent, no measurement values to continue with...terminate
+13-06-19 16:50:01 INFO root DHT22logger execution started
+13-06-19 16:50:01 INFO Configurations.ConfigHandler ConfigHandler instantiation started
+13-06-19 16:50:01 INFO Configurations.ConfigHandler Instantiate ConfigReader
+13-06-19 16:50:01 INFO Configurations.ConfigReader ConfigReader instantiation started
+13-06-19 16:50:01 INFO Configurations.ConfigReader Loading configurations from config.json
+13-06-19 16:50:01 INFO Configurations.ConfigReader ConfigReader instantiated
+13-06-19 16:50:01 INFO Configurations.ConfigHandler Read configurations
+13-06-19 16:50:01 INFO Configurations.ConfigHandler Configurations read succesfully
+13-06-19 16:50:01 INFO Configurations.ConfigAdapter ConfigAdapter instantiation started
+13-06-19 16:50:01 INFO Utility.TimeFormatHelper TimeFormat instantiation started
+13-06-19 16:50:01 INFO Utility.TimeFormatHelper TimeFormat instantiated
+13-06-19 16:50:01 INFO Configurations.ConfigAdapter ConfigAdapter instantiated
+13-06-19 16:50:01 INFO Configurations.ConfigHandler ConfigHandler instantiated
+13-06-19 16:50:01 INFO Configurations.ConfigHandler Get full configuration adaptation
+13-06-19 16:50:01 INFO Configurations.ConfigAdapter Creating dictionary for full configurations
+13-06-19 16:50:01 INFO Configurations.ConfigAdapter Configuration dictionary created
+13-06-19 16:50:01 INFO Database.DbActionController DbController instantiation started
+13-06-19 16:50:01 INFO Database.DbActions DBActions instantiation started
+13-06-19 16:50:01 INFO Database.DbActions DBActions instantiated
+13-06-19 16:50:01 INFO Database.DbActionController DbController instantiated
+13-06-19 16:50:01 INFO Utility.MailSender MailSender instantiation started
+13-06-19 16:50:01 INFO Utility.TimeFormatHelper TimeFormat instantiation started
+13-06-19 16:50:01 INFO Utility.TimeFormatHelper TimeFormat instantiated
+13-06-19 16:50:01 INFO Utility.MailSender MailSender instantiation finished
+13-06-19 16:50:01 INFO Sensors.SensorDataHandler SensorDataHandler instantiation started
+13-06-19 16:50:01 INFO Sensors.SensorReader SensorReader instantiation started
+13-06-19 16:50:01 INFO Sensors.SensorReader SensorReader instantiated
+13-06-19 16:50:01 INFO Utility.MeasurementCompare MeasurementCompare instantiation started
+13-06-19 16:50:01 INFO Utility.MeasurementCompare Instantiation done
+13-06-19 16:50:01 INFO Sensors.SensorDataHandler SensorDataHandler instantiated
+13-06-19 16:50:01 INFO Sensors.SensorReader Starting to collect temperature and humidity data from the the sensors
+13-06-19 16:50:01 INFO Sensors.SensorReader Collecting data for sensor: Pasillo frio
+13-06-19 16:50:01 INFO Sensors.SensorReader Get readings for the sensor Pasillo frio
+13-06-19 16:50:01 INFO Sensors.SensorReader Start reading values for sensor type 22 in gpio 22
+13-06-19 16:50:40 ERROR Sensors.SensorReader Failed to get readings for sensor: Pasillo frio
+Traceback (most recent call last):
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 58, in getSensorReadings
+    temperature,humidity = self._getSensorReadings(sensorType,gpio)
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 133, in _getSensorReadings
+    sensorReadings = subprocess.check_output(['sudo',self.adafruitPathConfig,sensorType,gpio])
+  File "/usr/lib/python2.7/subprocess.py", line 219, in check_output
+    raise CalledProcessError(retcode, cmd, output=output)
+CalledProcessError: Command '['sudo', u'/home/pi/Adafruit_Python_DHT/examples/AdafruitDHT.py', u'22', u'22']' returned non-zero exit status 1
+13-06-19 16:50:40 INFO Sensors.SensorReader Collecting data for sensor: Pasillo caliente
+13-06-19 16:50:40 INFO Sensors.SensorReader Get readings for the sensor Pasillo caliente
+13-06-19 16:50:40 INFO Sensors.SensorReader Start reading values for sensor type 22 in gpio 23
+13-06-19 16:51:19 ERROR Sensors.SensorReader Failed to get readings for sensor: Pasillo caliente
+Traceback (most recent call last):
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 58, in getSensorReadings
+    temperature,humidity = self._getSensorReadings(sensorType,gpio)
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 133, in _getSensorReadings
+    sensorReadings = subprocess.check_output(['sudo',self.adafruitPathConfig,sensorType,gpio])
+  File "/usr/lib/python2.7/subprocess.py", line 219, in check_output
+    raise CalledProcessError(retcode, cmd, output=output)
+CalledProcessError: Command '['sudo', u'/home/pi/Adafruit_Python_DHT/examples/AdafruitDHT.py', u'22', u'23']' returned non-zero exit status 1
+13-06-19 16:51:19 INFO Sensors.SensorReader Sensor readings collected
+13-06-19 16:51:19 INFO Sensors.SensorDataHandler Successfully read: 0 sensors. Failed to read: 2 sensor(s)
+13-06-19 16:51:19 ERROR Sensors.SensorDataHandler Failed to get readings from any of the sensors. Execution terminated
+13-06-19 16:51:19 INFO Sensors.SensorDataHandler Send warning to indicate that none of the sensors provided data
+13-06-19 16:51:19 INFO Utility.MailSender sendWarningEmail called
+13-06-19 16:51:19 INFO Utility.MailSender _sendMail called. Sending mail...
+13-06-19 16:51:20 INFO Utility.MailSender Mail sent
+13-06-19 16:51:20 WARNING Sensors.SensorDataHandler Warning mail sent, no measurement values to continue with...terminate
+13-06-19 16:55:02 INFO root DHT22logger execution started
+13-06-19 16:55:02 INFO Configurations.ConfigHandler ConfigHandler instantiation started
+13-06-19 16:55:02 INFO Configurations.ConfigHandler Instantiate ConfigReader
+13-06-19 16:55:02 INFO Configurations.ConfigReader ConfigReader instantiation started
+13-06-19 16:55:02 INFO Configurations.ConfigReader Loading configurations from config.json
+13-06-19 16:55:02 INFO Configurations.ConfigReader ConfigReader instantiated
+13-06-19 16:55:02 INFO Configurations.ConfigHandler Read configurations
+13-06-19 16:55:02 INFO Configurations.ConfigHandler Configurations read succesfully
+13-06-19 16:55:02 INFO Configurations.ConfigAdapter ConfigAdapter instantiation started
+13-06-19 16:55:02 INFO Utility.TimeFormatHelper TimeFormat instantiation started
+13-06-19 16:55:02 INFO Utility.TimeFormatHelper TimeFormat instantiated
+13-06-19 16:55:02 INFO Configurations.ConfigAdapter ConfigAdapter instantiated
+13-06-19 16:55:02 INFO Configurations.ConfigHandler ConfigHandler instantiated
+13-06-19 16:55:02 INFO Configurations.ConfigHandler Get full configuration adaptation
+13-06-19 16:55:02 INFO Configurations.ConfigAdapter Creating dictionary for full configurations
+13-06-19 16:55:02 INFO Configurations.ConfigAdapter Configuration dictionary created
+13-06-19 16:55:02 INFO Database.DbActionController DbController instantiation started
+13-06-19 16:55:02 INFO Database.DbActions DBActions instantiation started
+13-06-19 16:55:02 INFO Database.DbActions DBActions instantiated
+13-06-19 16:55:02 INFO Database.DbActionController DbController instantiated
+13-06-19 16:55:02 INFO Utility.MailSender MailSender instantiation started
+13-06-19 16:55:02 INFO Utility.TimeFormatHelper TimeFormat instantiation started
+13-06-19 16:55:02 INFO Utility.TimeFormatHelper TimeFormat instantiated
+13-06-19 16:55:02 INFO Utility.MailSender MailSender instantiation finished
+13-06-19 16:55:02 INFO Sensors.SensorDataHandler SensorDataHandler instantiation started
+13-06-19 16:55:02 INFO Sensors.SensorReader SensorReader instantiation started
+13-06-19 16:55:02 INFO Sensors.SensorReader SensorReader instantiated
+13-06-19 16:55:02 INFO Utility.MeasurementCompare MeasurementCompare instantiation started
+13-06-19 16:55:02 INFO Utility.MeasurementCompare Instantiation done
+13-06-19 16:55:02 INFO Sensors.SensorDataHandler SensorDataHandler instantiated
+13-06-19 16:55:02 INFO Sensors.SensorReader Starting to collect temperature and humidity data from the the sensors
+13-06-19 16:55:02 INFO Sensors.SensorReader Collecting data for sensor: Pasillo frio
+13-06-19 16:55:02 INFO Sensors.SensorReader Get readings for the sensor Pasillo frio
+13-06-19 16:55:02 INFO Sensors.SensorReader Start reading values for sensor type 22 in gpio 22
+13-06-19 16:55:40 ERROR Sensors.SensorReader Failed to get readings for sensor: Pasillo frio
+Traceback (most recent call last):
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 58, in getSensorReadings
+    temperature,humidity = self._getSensorReadings(sensorType,gpio)
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 133, in _getSensorReadings
+    sensorReadings = subprocess.check_output(['sudo',self.adafruitPathConfig,sensorType,gpio])
+  File "/usr/lib/python2.7/subprocess.py", line 219, in check_output
+    raise CalledProcessError(retcode, cmd, output=output)
+CalledProcessError: Command '['sudo', u'/home/pi/Adafruit_Python_DHT/examples/AdafruitDHT.py', u'22', u'22']' returned non-zero exit status 1
+13-06-19 16:55:40 INFO Sensors.SensorReader Collecting data for sensor: Pasillo caliente
+13-06-19 16:55:40 INFO Sensors.SensorReader Get readings for the sensor Pasillo caliente
+13-06-19 16:55:40 INFO Sensors.SensorReader Start reading values for sensor type 22 in gpio 23
+13-06-19 16:56:19 ERROR Sensors.SensorReader Failed to get readings for sensor: Pasillo caliente
+Traceback (most recent call last):
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 58, in getSensorReadings
+    temperature,humidity = self._getSensorReadings(sensorType,gpio)
+  File "/home/pi/DHT22-TemperatureLogger/Sensors/SensorReader.py", line 133, in _getSensorReadings
+    sensorReadings = subprocess.check_output(['sudo',self.adafruitPathConfig,sensorType,gpio])
+  File "/usr/lib/python2.7/subprocess.py", line 219, in check_output
+    raise CalledProcessError(retcode, cmd, output=output)
+CalledProcessError: Command '['sudo', u'/home/pi/Adafruit_Python_DHT/examples/AdafruitDHT.py', u'22', u'23']' returned non-zero exit status 1
