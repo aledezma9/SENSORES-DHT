@@ -38,114 +38,98 @@ Y algunos retoques más menores y arreglos.
 
 ---------------------------------------------------------------------------------------
 
-This is an Raspberry Pi based temperature and humidity logger that uses Adafruit DHT22 sensors for measurements. You might have seen similar kind of instructions before, but this one has a twist. It doesn't just read temperature and humidity from sensors, but it stores data to database and provides means to read that temperature data with any web enabled device (computer, phone, tablet) web browser. This logger also allows you to set limits for temperatures and is able to send email if sensor temperature or humidity exceeds set limits...this neat feature can be for example used to alarm when it is time to set heating on in your house / carage / greenhouse / you name it.
+Este es un almacenador de temperatura y humedad basado en Raspberry Pi que usa sensores Adafruit DHT11/22 para las mediciones. Es posible que hayas visto instrucciones similares antes, pero esta tiene un giro. No solo lee la temperatura y la humedad de los sensores, sino que almacena datos en la base de datos y proporciona medios para leer esos datos de temperatura con cualquier dispositivo web (computadora, teléfono, tableta) con navegador web. Este registrador también le permite establecer límites para las temperaturas y puede enviar correos electrónicos si la temperatura o la humedad del sensor exceden los límites establecidos ... esta característica ingeniosa se puede usar, por ejemplo, para avisar cuando es el momento de encender el clima en su casa /invernadero/lo que sea.
 
-To complete this instructable, you will need following:
+Para el desarrollo, necesitarás lo siguiente
 
-- Raspberry PI (I used Raspberry PI 1 model B+, but should be doable with other models as well)
+- Raspberry PI (Utilicé Raspberry PI 2 modelo B +, pero también se puede con cualquier modelo)
 
-- Power supply for the pi. (I used old Nokia microusb telephone charger which gives about 880mA)
+- Fuente de poder. (Ulilice un adaptador de 5v 2a para mejor funcionamiento)
 
-- SD memory card. Note that you might need adapter. (I used 8Gb and had 4.1Gb available after installing everything)
+- Una memoria SD. Quiza podras utilizar un adaptador. (En este caso utilizamos una memoria de 8GB)
 
-- Ethernet cable or USB wlan dongle that is supported by Raspberry Pi (google can help with this)
+- Sensores DHT11/22 Resistencias de  4.7 kOhm . El desarrollo puede utilizar N cantidad de sensores. https://troxino.com/collections/sensores/products/sensor-de-humedad-y-temperatura-dht-22
 
-- DHT22 sensor/s and 4.7 kOhm resistors. Instructable supports 1-n sensors. https://www.adafruit.com/products/385
+Paso 1 conectaremos los sensores a la rasperry
+    En este caso el pin 1 del sensor se conecta al pin de 3.3v de la raspberry
+    El pin 2 al GPI de la raspberry(en mi caso el sensor 1 en el gpio 22 y el 2 en el gpio 23)
 
-- Cables and breakout for connection https://www.adafruit.com/products/914
 
-- Computer where you set up the SD card for the raspberry PI and from where you can connect and do the configurations. (NOTE: this instruction uses PC)
 
-- Optional: Breadboard. Test assembly is easier to be created on this, than by connecting wires directly to sensors: http://thepihut.com/products/raspberry-pi-breadbo...
 
-Internet connection is also require in location where you are going to set the raspberry logger. Either via ethernet or wlan dongle.
 
-Keyboard + display are needed as well while installing and configuring the Wheezy OS. But once installations are finished, network is up and SSH enabled, it is possible to use connect raspberry pi remotely from PC and keyboard + display can be put aside.
-Step 1: Sensor and RPI Assembly
-Picture of Sensor and RPI Assembly
-Picture of Sensor and RPI Assembly
 
-Create assembly as instructed in attached image. Image instructs how you can connect two DHT22's to the Raspberry Pi, but if you have only one available just ignore another one and add one. And vice versa, if you have more sensors add them to free ground, power and gpio pins.
+Cuando la conexion este lista, prepare la tarjeta SD y vaya al siguiente paso.
+Step 2: Sistema Operativo de la raspnerry
 
-Notable here is that you can connect sensors to any GPIO you like. I had mine connected in GPIO22 and GPIO23. Both sensors also need +3.3Volts and ground. Resistor is set between +3.3V line and GPIO line.
 
-When assembly is ready, prepare SD card and go to next step.
-Step 2: OS for the RPI
-Picture of OS for the RPI
+En este caso utilizaremos Raspbian strech litte, ya que no utilizaremos el escritorio ni orogramas extras https://www.raspberrypi.org/downloads/raspbian/
 
-Previously Wheezy was selected OS for this instructable. But that has long since changed and the link was dead as well. Instead, get Raspbian-Stretch-Lite image from here to your computer https://www.raspberrypi.org/downloads/raspbian/
+Tambien utilizaremos Win32 Disk Imager http://sourceforge.net/projects/win32diskimager/
 
-And get also Win32 Disk Imager http://sourceforge.net/projects/win32diskimager/
+Iniciamos Win32 Disk Imager y le damos la ubicacion de la imagen descargada previamente(.img), seleccionamos el drive donde se instalara y presionamos "whrite"
 
-Start Win32 Disk Imager and set the location of the downloaded Os image (.img file) to "Image File". Select the drive where your SD card is and select "Write".
+Disk Imager le pide que confirme sobreescribir. Verifique que la unidad sea correcta y seleccione "Sí". Espera a que la escritura termine. Cuando Disk Imager le informa que la escritura se ha completado y que ha tenido éxito, presione "OK", cierre el Disk Imager y extraiga la tarjeta SD de la computadora.
 
-Imager asks to Confirm Overwrite. Double check that drive is correct and select "Yes". Wait for write to finish. When Disk Imager informs that write is completed and successful press "OK", close the Disk Imager and eject the SD card from computer.
+Inserte la tarjeta SD en la raspberry y continuamos.
+Step 3: Configurar la raspberry
 
-Place the card to your Raspberry Pi and go to next step.
-Step 3: Setting Up Raspberry Pi
+Inserte la tarjeta SD en Raspberry Pi y enciéndala conectando la fuente de alimentación al micro-usb de Raspberry Pi. (Recuerde colocar el teclado y la pantalla antes de insertar la fuente de alimentación).
 
-Set SD card to Raspberry Pi and power it up by plugging the power supply to Raspberry Pi's micro-usb. (Remember to attach keyboard and display before you insert power supply).
+Rasperry Pi comienza a arrancar y le pedirá un nombre de usuario y contraseña.
 
-Rasperry Pi starts to boot up and will prompt for username and password.
-
-By default those are:
+Por default son estos:
 
 username: pi
 
 password: raspberry
 
-After boot up finished start the configuration tool by typing
+Después de que el arranque haya terminado, inicie la herramienta de configuración escribiendo
 
 sudo raspi-config
 
-In configuration tool, do the following:
+En la herramienta de configuración, haga lo siguiente:
 
-1. Change your password and give new password to Raspberry Pi
+1. Cambia tu contraseña y dale una nueva contraseña a Raspberry Pi
 
-2. Open network options -> 2.1 Change name if you want to -> 2.2 Enter wi-fi information (ssid, password)
+2. Abre network options -> 2.1 Change name if you want to -> 2.2 Enter wi-fi information (ssid, password)
 
-3. Make sure that Raspberry Pi boots to console by selecting option 1, console.
+3. MAsegúrese de que la Raspberry Pi se inicie en la consola seleccionando la opción 1, consola.
 
-4.This is optional, but it is advised that you set up locale information correctly. If you want to change internationalization options e.g. keyboard layout, timezone.
+4.Esto es opcional, pero se recomienda que configure la información de configuración regional correctamente. Si desea cambiar las opciones de internacionalización, p. Ej. Disposición del teclado, zona horaria.
 
-5. From interfacing options, select P2 - SSH and enable it This allows you to connect to RPI with SSH from your computer. This way you don't need display or keyboard on RPI to use it
+5. Desde las opciones de interfaz, seleccione P2 - SSH y habilítelo. Esto le permite conectarse a RPI con SSH desde su computadora. De esta manera no necesita pantalla ni teclado en RPI para usarlo
 
-6.Don't do anything
 
-7. Open advanced options -> 7.1 Expand filesystem
-
-8. Optional
-
-Finally go to "Finish" and restart RPI by typing
+Finalmente, vaya a "Finalizar" y reinicie RPI escribiendo
 
 sudo reboot
 
-Configuration is now ready. Next step is to check how it can be connected remotely from PC.
-Step 4: Connect Your Raspberry Pi From PC Part 1
-Picture of Connect Your Raspberry Pi From PC Part 1
-Picture of Connect Your Raspberry Pi From PC Part 1
+La configuración ya está lista. El siguiente paso es comprobar cómo se puede conectar de forma remota desde la PC.
+Paso 4: Conectarse a la raspberry 
 
-Raspberry Pi is now configured and booted up. You should be able connect it via PuTTY from your PC now. PuTTY can be downloaded from http://www.chiark.greenend.org.uk/~sgtatham/putty...
 
-When you start up the PuTTY you will notice that Host name or IP is required in order to connect to your Raspberry PI. To obtain the Raspberry Pi's IP address. Type the following to Raspberry Pi and press enter
+Raspberry Pi ahora está configurado y arrancado. Ahora deberías poder conectarlo a través de PuTTY desde tu PC. PuTTY se puede descargar desde http://www.chiark.greenend.org.uk/~sgtatham/putty
+
+Cuando inicie el PuTTY, notará que se requiere el nombre de host o IP para poder conectarse a su Raspberry PI. Para obtener la dirección IP de la Raspberry pi. Escribe lo siguiente en Raspberry Pi y presiona enter
 
 Ifconfig
 
-This will list you network adapters and information from them (check image). If you are connected with Ethernet (like I was at this point) you should see inet addr:xxx.xxx.xxx.xxx in eth0. by typing this inet address to PuTTY's host name line you should be able to connect Raspberry Pi remotely.
+Esto mostrará una lista de los adaptadores de red y la información de ellos (ver imagen). Si está conectado a Ethernet (como lo estaba en este punto), debería ver inet addr: xxx.xxx.xxx.xxx en eth0. al escribir esta dirección de entrada en la línea del nombre de host de PuTTY, debería poder conectar Raspberry Pi de forma remota.
 
-If you set up Wlan in previous step, you should also see wlan0 information, inet addr: etc. You can connect using those as well.
+Si configuró Wlan en el paso anterior, también debería ver la información de wlan0, inet addr: etc. También puede conectarse utilizando estos.
 
-There is also manual way to configure WLAN. It was used earlier with Wheezy OS and it is described in next page. If you have network setup already, you can skip it and continue with how to connect with PuTTY.
-Step 5: Optional: Wlan Configuration to Raspberry Pi
-Picture of Optional: Wlan Configuration to Raspberry Pi
+También hay forma manual de configurar WLAN. Se usó anteriormente con Wheezy OS y se describe en la página siguiente. Si ya tiene configurada la red, puede omitirla y continuar con la forma de conectarse con PuTTY.
+Paso 5: Opcional: Configuración Wlan a Raspberry Pi
+Imagen de Opcional: Configuración Wlan a Raspberry Pi
 
-Manual way of adding Raspberry Pi WLAN settings.
+Manera manual de añadir configuraciones de WLAN de Raspberry Pi.
 
-You need to set wlan ssid and password to configuration so that Raspberry Pi can connect it.To start type following and press enter.
+Debe configurar wlan ssid y la contraseña para que la Raspberry Pi pueda conectarse. Para comenzar, escriba lo siguiente y presione enter.
 
 sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
 
-Add network section and configurations to the end of the file (check above image for reference):
+Agregue la sección de red y las configuraciones al final del archivo (verifique la imagen de arriba para referencia):
 
 Network={
 
@@ -155,221 +139,190 @@ psk="passwordtoyourwlan"
 
 }
 
-Save with Ctrl+X and select "Y" to confirm save.
+Guardar con Ctrl+X y seleccionamos "Y" para confirmar y guardar.
 
-Now restart Raspberry Pi. Type following and press enter.
+Ahora reiniciamos la Raspberry.
 
 sudo reboot
 
-Once booted up and logged in, type following and press enter.
+Despues de que inicie tecleamos lo siguente para ver si se comecto a la red.
 
 Ifconfig
 
-You should now see that also wlan0 has inet addr available.
-Step 6: Connect Your Raspberry Pi From PC Part 2
-Picture of Connect Your Raspberry Pi From PC Part 2
-Picture of Connect Your Raspberry Pi From PC Part 2
-Picture of Connect Your Raspberry Pi From PC Part 2
+Paso 5: Instalamos las librerias de los sensores
 
-Now the IP (ethernet or wlan) address is known. You can now connect via PuTTY from your windows desktop. To do so, open putty, type in IP address and port 22 and select open.
-
-Say yes to security alert and command line opens up in PuTTY.
-
-Type in login name and password and now you should be in pi's command prompt. This means that you can now disconnect keyboard and display from Raspberry Pi and do all the rest of the steps from your pc via PuTTY. To shutdown pi (just in case when disconnecting keyboard and display) type following and press enter.
-
-sudo shutdown -h now
-
-Raspberry Pi will shut down. Once you have disconnected keyboard and display disconnect power supply and put it back in to boot up the Raspberry Pi. Wait for a moment (so Raspberry Pi boots up) and then try to connect again via PuTTY, if everything works like it should you should be now able to login...if you get timeout at first, wait for a moment and try again.
-
-NOTE: IP address can change if your routers DHCP gives new IP address to the Raspberry Pi during bootup / reset and therefore you should know the new IP in order to connect again via PuTTY.
-
-To avoid this problem, you have option to set in static ip address for the Raspberry Pi…there is few guides how to do that. E.g. try this http://www.modmypi.com/blog/tutorial-how-to-give-...
-
-Or then you can do like I did (if your router allows it), add address reservation to Raspberry Pi's wlan adapter MAC address in router configurations. I have tplink router so i added MAC address and reserved currently assigned IP address for it. For this trick, you need both, IP address and MAC. Againy type following and press enter.
-
-ifconfig
-
-Take note from hwaddr (this is the Mac and inet addr which is the IP)Then create address reservation to your DHCP / address reseravtion list. Check your routers user guide to see how this can be done in your own router. I have TPLink so Address Reservation looks exactly like in attached image.
-
-Now everything is set up and we can get to the fun part.
-Step 7: Installing DHT22 Sensor Libraries
-
-Start by updating and upgrading the Raspberry Pi. Type following and press enter.
+Empezemos por actualizar nuestro sistema.
 
 sudo apt-get update
 
-This updates software sources then type following and press enter.
+Con esto actualizaremos nuestro software.
 
 sudo apt-get upgrade
 
-This updates to everything to latest version. If prompted to continue press "Y".
+Esto nos instalara las versiones nuevas. Presionamos "Y".
 
-When these are finished, it is time to install Adafruit Python code. You will need this code in order to get readings from DHT22 sensors. This will also allow you to test that your assembly works in first place.
+Cuando se terminen, es hora de instalar el código Python de Adafruit. Necesitará este código para obtener lecturas de los sensores DHT22. Esto también le permitirá probar que su ensamblaje funciona en primer lugar.
 
-At first, get compiler and python library. For that type following and press enter
+Al principio, consigue el compilador y la biblioteca de python. Para ese tipo sigue y pulsa enter.
 
 sudo apt-get install build-essential python-dev python-openssl
 
-Then, make sure that you are in folder where you want to install the Adafruit code, by default i would suggest /home/. For that type following and press enter.
+Luego, asegúrese de que está en la carpeta donde desea instalar el código de Adafruit, sugeriría por defecto /home/. Para ese tipo sigue y pulsa enter.
 
 cd /home/pi
 
-In stretch lite, you also need to install Git separately as it is not included by default. To do so, type:
+En stretch lite, también es necesario instalar Git por separado, ya que no está incluido de forma predeterminada. Para ello, escriba:
 
 sudo apt-get install git
 
 
-Now clone the git repository. Type following and press enter.
+Ahora clona el repositorio de git. Escribe lo siguiente y pulsa enter.
 
-git clone https://github.com/adafruit/Adafruit_Python_DHT.g...
+git clone https://github.com/adafruit/Adafruit_Python_DHT.git
 
-Go to folder.Type following and press enter.
+Ir a la carpeta. Escribe a continuación y presiona enter.
 
 cd Adafruit_Python_DHT
 
-
-And finally install the Adafruit library. Type following and press enter.
+Y finalmente instalar la biblioteca de Adafruit. Escribe lo siguiente y pulsa enter.
 
 sudo python setup.py install
 
-Then it is time to test your assembly...
-Step 8: Testing the DHT22's
-Picture of Testing the DHT22's
+Ahora es tiempo de probar nuestros sensores...
+Paso 6: Probando los DHT22's
 
-Now that installation is completed you can test the connected sensor/s and see that you get reading from them. Go to folder where you cloned the Adafruit_Python_DHT and then to examples folder. Type following and press enter.
+
+Ahora que la instalación ha finalizado, puede probar los sensores conectados y ver que obtiene lecturas de ellos. Vaya a la carpeta donde clonó el Adafruit_Python_DHT y luego a la carpeta de ejemplos. Escribe lo siguiente y pulsa enter.
 
 cd /home/pi/Adafruit_Python_DHT/examples
 
-You remember the gpio/s where you plugged the sensor/s? Good, then type sudo ./AdafruitDHT.py and press enter. I had gpio 22 and 23 so I tested with
+¿Recuerdas las gpio/s donde conectaste los sensores? Ok, escriba sudo ./AdafruitDHT.py y presione enter. Tuve gpio 22 y 23 así que probé con
 
 sudo ./AdafruitDHT.py 22 22
 
 sudo ./AdafruitDHT.py 22 23
 
-If your sensor and assembly is ok, you should get back temperature and humidity from the sensor/s. Like seen in attached image.
 
-NOTE:
 
-If you see "Failed to get reading. Try again!", then try again few times.
+NOTA:
 
-If still nothing, re-check that you typed in the right GPIO.
+ 
+Si ve "Failed to get reading. Try again!",, Vuelva a intentarlo varias veces.
 
-If gpio is for sure right, check your assembly again. E.g. DHT22 gets power, ground and resistor is connected correctly.
+Si todavía no hay nada, vuelva a verificar que escribió el GPIO correcto.
 
-If all above are right, try to connect your sensor to another GPIO and see if you get reading from that
+Si es seguro que gpio está correcto, revise su ensamblaje nuevamente. P.ej. El DHT22 recibe energía, tierra y la resistencia está conectada correctamente.
 
-If nothing from above works, it is always possible that your DHT22 is broken. :(
+Si todo lo anterior es correcto, intente conectar su sensor a otro GPIO y vea si obtiene lectura de eso
 
-Libraries for DHT22 sensors are now installed and you can get the readings from sensor/s. Time to set up database for holding that data.
-Step 9: Setting Up the MySql for Storing the Temperature Data
-Picture of Setting Up the MySql for Storing the Temperature Data
+Si nada de lo anterior funciona, siempre es posible que su DHT22 esté roto.:(
 
-Get Mysql/MariaDb and required addons for it. To do that type following and press enter.
+Las bibliotecas para los sensores DHT22 ahora están instaladas y puede obtener las lecturas de los sensores. Es hora de configurar la base de datos para mantener esos datos.
+
+Paso 6: Configuración de MySql para almacenar los datos de temperatura
+
+
+Obtenga Mysql / MariaDb y los complementos necesarios para ello. Para hacer ese tipo sigue y pulsa enter.
 
 sudo apt-get install mysql-server python-mysqldb
 
-Note: You won't be queried for password for ROOT user anymore during the installation. This is empty by default.
+Nota: no se le solicitará la contraseña del usuario ROOT durante la instalación. Esto está vacío por defecto.
 
-After installation completed. It is time to set up the actual database and tables for storing the data. This need to be done in mysql console. To get into console type in the following and press enter.
+Después de la instalación completada. Es hora de configurar la base de datos real y las tablas para almacenar los datos. Esto debe hacerse en la consola mysql. Para ingresar a la consola escriba lo siguiente y presione enter.
 
 sudo mysql -u root -p -h localhost
 
-Hit enter (empty) for password and you should be in MariaDb console
+Presione enter (vacío) para la contraseña y debería estar en la consola de MariaDb
 
-In console
+En consola
 
-First, create database called temperatures. Type following and press enter.
+Primero, crea una base de datos llamada temperatures. Escribe siguiente y pulsa enter.
 
 CREATE DATABASE temperatures;
 
-Select the created database by typing following and pressing enter.
+Seleccinamos la base de datos de la siguiente manera.
 
 USE temperatures;
 
-Next you need to create database user and grant access to database . (Change password to something else if you like).To do that type in the following lines separately and after each press enter (check reference image 2).
-
+A continuación, debe crear un usuario de base de datos y otorgar acceso a la base de datos. (Cambie la contraseña a otra cosa si lo desea). Para hacer ese tipo, escriba las siguientes líneas por separado y después de cada presine enter
 CREATE USER 'logger'@'localhost' IDENTIFIED BY 'password';
 
 GRANT ALL PRIVILEGES ON temperatures.* TO 'logger'@'localhost';
 
 FLUSH PRIVILEGES;
 
-Now the user has been created and privileges added. Time to change user from root to this new logger. Log out by typing following and pressing enter.
+Ahora el usuario ha sido creado y los privilegios añadidos. Es hora de cambiar de usuario de root a este nuevo registrador. Cierre la sesión escribiendo a continuación y presionando enter.
 
 quit
 
-And log back in with this new user by typing following and pressing enter
+Y vuelva a iniciar sesión con este nuevo usuario escribiendo siguiente y presionando enter
 
 sudo mysql -u logger -p -h localhost
 
-And give password that you assigned after IDENTIFIED BY when creating the user (by default it was password).
+Y proporcione la contraseña que asignó después de IDENTIFIED BY al crear el usuario (de forma predeterminada, era password).
+Ahora es el momento de crear dos tablas. La temperatura para almacenar la información del sensor y el tiempo de medición y también el registro de correo que contiene información cuando se han enviado avisos de límite de temperatura. Mailsendlog se usa en el código para verificar cuándo se envió la última advertencia y se ha restringido que la advertencia solo se puede enviar dentro del límite de tiempo de espera de envío de correo establecido en las configuraciones. Esta restricción es necesaria para que el buzón no se inunde en los casos en que las mediciones se realizan con frecuencia, por ejemplo. Cada minuto y cada medida provoca una advertencia.
 
-Now it is time to create two tables. Temperaturedata for storing sensor information and time of measurement and also mailsendlog that holds information when temperature limit trigged mail warnings have been sent. Mailsendlog is used in code to check when last warning was sent and it has been restricted that warning can be sent only within mail sending timeout limit set in configurations. This restriction is required so that mailbox is not flooded in cases where measurements are done frequently, e.g. every minute and every measurement causes warning.
+Sin embargo, hay pocas excepciones cuando se ignora esta verificación y es en los casos en que la temperatura o la humedad aumentan o disminuyen más de lo que permiten los límites del sensor entre las mediciones. Piense en el caso cuando está registrando la temperatura del hogar a través de este registrador y de repente hay una enorme caída de temperatura entre las mediciones, sería bueno obtener información sobre eso, incluso si el tiempo de espera establecido para el envío de correo aún no ha pasado.
 
-However there is little exception when this check is ignored and that is in cases when temperature or humidity increases or decreases more than sensor limits allow, between measurements. Think of the case when you are logging home temperature via this logger and there is suddenly huge drop in temperature between measurements, it would be nice to get information about that even if set mail sending time out has not passed yet.
+Algunas advertencias, como el sensor no se puede leer, o la inserción de la base de datos falla, se envían cada vez que ocurren. Estas advertencias indican que hay algo mal con la Raspberry Pi o los sensores y se deben revisar de inmediato.
 
-Some warnings, like sensor cannot be read, or database insert failed are send every time when they occur. These warning indicate that there is something wrong with Raspberry Pi or sensors and should be checked right away.
-
-To start creating tables, type in the following and press enter.
+Para comenzar a crear tablas, escriba lo siguiente y presione enter.
 
 USE temperatures;
 
-Create first table with columns dateandtime, sensor, temperature and humidity. To do that type in the following and press enter.
+Cree la primera tabla con columnas de datos, tiempo, sensor, temperatura y humedad. Para hacer eso escribe lo siguiente y pulsa enter.
 
 CREATE TABLE temperaturedata (dateandtime DATETIME, sensor VARCHAR(32), temperature DOUBLE, humidity DOUBLE);
 
-Create second table with columns dateandtime, triggedsensor, triggedlimit and lasttemperature. To do that type in the following and press enter.
+Cree la segunda tabla con las columnas dateandtime, triggedsensor, triggedlimit y lasttemperature. Para hacer eso escribe lo siguiente y pulsa enter.
 
 CREATE TABLE mailsendlog (mailsendtime DATETIME, triggedsensor VARCHAR(32), triggedlimit VARCHAR(10), lasttemperature VARCHAR(10));
-
-You can confim, that empty sets are present by typing in the following and pressing enter.
+Puede confirmar que los conjuntos vacíos están presentes escribiendo lo siguiente y presionando enter.
 
 SELECT * FROM mailsendlog;
 
 SELECT * FROM temperaturedata;
 
-If tables exist, you should see "Empty Set (0.00 sec)"
+Si existen tablas, deberías ver "Empty Set (0.00 sec)"
 
-Database and tables are now setup, exit the MySql console by typing in the following and pressing enter.
+La base de datos y las tablas ahora están configuradas, salga de la consola MySql escribiendo lo siguiente y presione Entrar.
 
 quit
 
-Then restart mysql to changes take effect. To do that type in the following and press enter
+Luego reinicie mysql para que los cambios surtan efecto. Para hacer eso escribe lo siguiente y presiona enter.
 
 sudo /etc/init.d/mysql restart
 
-Thats it, mysql and database is ready. Next thing is to download the DHT22-TemperatureLogger for reading sensors, and inserting data to these new tables.
-Step 10: Set Up the Temperature Logger Code
-Picture of Set Up the Temperature Logger Code
-Picture of Set Up the Temperature Logger Code
-Picture of Set Up the Temperature Logger Code
+Eso es todo, mysql y la base de datos está lista. Lo siguiente es descargar Lectura de sensores para leer sensores e insertar datos en estas nuevas tablas.
+Paso 7: Configuramos el lector de sensores
 
-TemperatureLogger Python code can also be found from github, just like the Adafruit DHT22 codes.
 
-NOTE: If this is first time you are doing this, you can skip to "Setting up" few lines below. But if you already have done this step earlier and now there is fixes/update in github that is wanted on your setup as well, you need to fetch the code again.
+El código Python de DatCenter también se puede encontrar en github, al igual que en los códigos DHT22 de Adafruit.
 
-Folder can either be removed and cloned again or fetched and reseted with Git. Either way, first backup configurations json file, backup also SQL backups from DHT22-TemperatureLogger/Backups folder, then remove DHT-TemperatureLogger folder.
+NOTA: Si es la primera vez que lo hace, puede saltar a "Configuración" algunas líneas a continuación. Pero si ya ha realizado este paso anteriormente y ahora hay arreglos / actualizaciones en github que también desea en su configuración, debe recuperar el código nuevamente.
 
-To remove and re-clone the folder make sure you are on the folder that contains DHT22-TemperatureLogger. e.g. type:
+La carpeta puede eliminarse y clonarse nuevamente o recuperarse y restablecerse con Git. De cualquier manera, primero haga una copia de seguridad de las configuraciones del archivo json, haga una copia de seguridad también de las copias de seguridad de SQL de la carpeta DHT22-TemperatureLogger / Backups, luego elimine la carpeta DHT-TemperatureLogger.
+
+Para eliminar y volver a clonar la carpeta, asegúrese de estar en la carpeta que contiene DHT22-TemperatureLogger. p.ej. tipo:
 
 cd /home/pi
 
-and remove the folder by typing
+y eliminar la carpeta escribiendo
 
-sudo rm -r DHT22-TemperatureLogger/
+sudo rm -r DataCenter/
 
-Now you can re-clone from GIT and reset the configurations with the steps mentioned below in "Setting up". Notable is that if there were changes also to configurations json file (e.g. new configurations), you cannot copy the backed up old file back as is.
+Ahora puede volver a clonar desde GIT y restablecer las configuraciones con los pasos que se mencionan a continuación en "Configuración". Notable es que si hubo cambios también en las configuraciones del archivo json (por ejemplo, nuevas configuraciones), no puede copiar el archivo antiguo respaldado tal como está.
 
-For Git fetch and reset
+Para Git buscar y restablecer
 
-Go to DHT22-TemperatureLogger/ folder
+Vamos a l folder DataCenter/
 
-type git remote -v and you should see something similar like this:
+tecleamos git remote -v y nos mostrara la version que tenemos instalada:
 
 origin https://github.com/jjpFin/DHT22-TemperatureLogger... (fetch)
 origin https://github.com/jjpFin/DHT22-TemperatureLogger....(push)
 
-Fetch latest version with git fetch --all
+Para obtener la ultima version de git fetch --all
 
 and reset folder to match latest version with git reset --hard
 
